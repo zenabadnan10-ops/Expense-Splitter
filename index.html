@@ -7,9 +7,9 @@
 <link rel="stylesheet" href="./src/style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-50 font-sans text-slate-900 antialiased lg:h-dvh lg:overflow-y-auto">
-<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:flex lg:h-full lg:min-h-160 lg:flex-col lg:px-8 lg:py-5">
-  <header class="flex flex-wrap items-center justify-between gap-3 lg:shrink-0">
+<body class="bg-slate-50 font-sans text-slate-900 antialiased min-h-screen">
+<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:flex lg:min-h-screen lg:flex-col lg:px-8 lg:py-5">
+  <header class="flex flex-wrap items-center justify-between gap-3 shrink-0">
     <div class="flex items-center gap-3">
       <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand text-lg font-bold text-white">S</div>
       <div>
@@ -19,16 +19,16 @@
     </div>
     <span class="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-brand">All amounts in PKR</span>
   </header>
-  <section class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-4 lg:shrink-0">
+  <section class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-4 shrink-0">
     <div class="rounded-3xl bg-brand p-6 text-white shadow-sm lg:p-4">
       <p class="text-sm text-indigo-200">Total spent</p>
-      <p id="statTotal" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:mt-1 lg:text-3xl">Rs. 0</p>
-      <p id="statCount" class="mt-2 text-xs lg:mt-1 text-indigo-200">Across 0 expenses</p>
+      <p class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:mt-1 lg:text-3xl">Rs. <span id="statTotal">0</span></p>
+      <p class="mt-2 text-xs lg:mt-1 text-indigo-200">Across <span id="statCount">0</span> expenses</p>
     </div>
     <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 lg:p-4">
       <p class="text-sm text-slate-500">Per person</p>
-      <p id="statPer" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:mt-1 lg:text-3xl">Rs. 0</p>
-      <p id="statSplit" class="mt-2 text-xs lg:mt-1 text-slate-400">Equal split among 0</p>
+      <p class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl lg:mt-1 lg:text-3xl">Rs. <span id="statPer">0</span></p>
+      <p class="mt-2 text-xs lg:mt-1 text-slate-400">Equal split among <span id="statSplit">0</span></p>
     </div>
     <div class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 lg:p-4">
       <p class="text-sm text-slate-500">Members</p>
@@ -36,8 +36,8 @@
       <p class="mt-2 text-xs lg:mt-1 text-slate-400">In the group</p>
     </div>
   </section>
-  <main class="mt-6 grid grid-cols-1 gap-6 lg:mt-4 lg:min-h-0 lg:flex-1 lg:grid-cols-5 lg:grid-rows-1 lg:gap-4">
-    <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 lg:col-span-2 lg:flex lg:min-h-0 lg:flex-col">
+  <main class="mt-6 grid grid-cols-1 gap-6 lg:mt-4 lg:flex-1 lg:grid-cols-5 lg:gap-4">
+    <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 lg:col-span-2 lg:flex lg:flex-col">
       <div class="flex items-center justify-between">
         <h2 class="text-base font-semibold">Members</h2>
         <span id="memberBadge" class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-brand">0</span>
@@ -46,10 +46,10 @@
         <input id="memberName" type="text" placeholder="Enter a name..." class="min-w-0 flex-1 rounded-xl border border-slate-200 px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-indigo-200">
         <button id="addMember" class="rounded-xl bg-brand px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-dark focus:outline-none focus:ring-2 focus:ring-indigo-300">Add</button>
       </div>
-      <ul id="memberList" class="mt-4 space-y-3 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:pr-1"></ul>
+      <ul id="memberList" class="mt-4 min-h-36 max-h-80 space-y-3 overflow-y-auto pr-1 lg:max-h-none lg:flex-1"></ul>
     </section>
-    <div class="flex flex-col gap-6 lg:col-span-3 lg:min-h-0 lg:gap-4">
-      <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 lg:shrink-0">
+    <div class="flex flex-col gap-6 lg:col-span-3 lg:gap-4">
+      <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 shrink-0">
         <h2 class="text-base font-semibold">Add expense</h2>
         <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <label class="sm:col-span-2">
@@ -73,15 +73,15 @@
         </div>
         <p id="formError" class="mt-3 hidden text-sm text-rose-600"></p>
       </section>
-      <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
-        <div class="flex items-center justify-between">
+      <section class="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 sm:p-6 flex flex-col min-h-64 lg:flex-1">
+        <div class="flex items-center justify-between shrink-0">
           <h2 class="text-base font-semibold">Expenses</h2>
           <span id="expBadge" class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-brand">0</span>
         </div>
-        <ul id="expList" class="mt-4 space-y-3 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:pr-1"></ul>
-        <div class="mt-5 flex items-center justify-between px-1 lg:mt-3 lg:shrink-0">
+        <ul id="expList" class="mt-4 flex-1 space-y-3 overflow-y-auto pr-1 min-h-36 max-h-72 lg:max-h-none"></ul>
+        <div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 px-1 shrink-0">
           <span class="text-sm text-slate-500">Total</span>
-          <span id="expTotal" class="text-xl font-bold">Rs. 0</span>
+          <span class="text-xl font-bold">Rs. <span id="expTotal">0</span></span>
         </div>
       </section>
     </div>
